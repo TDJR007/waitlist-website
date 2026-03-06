@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* 
+@theme is Tailwind v4's way of registering custom design tokens. 
+Once defined here, you can use them as Tailwind classes — e.g. bg-terra, text-muted, font-serif — anywhere in your components.
+*/
+
+@theme {
+  /* Colours */
+  --color-ink: #1a1410;
+  --color-warm: #f5efe6;
+  --color-cream: #faf7f2;
+  --color-terra: #c4613a;
+  --color-gold: #d4975a;
+  --color-sage: #7a9e8e;
+  --color-muted: #8a7f76;
+  --color-rule: #e8e0d5;
+
+  /* Fonts */
+  --font-serif: "Lora", serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-1 { animation-delay: 0.2s; }
+  .animate-fade-up-2 { animation-delay: 0.35s; }
+  .animate-fade-up-3 { animation-delay: 0.5s; }
+  .animate-fade-up-4 { animation-delay: 0.65s; }
+  .animate-fade-up-5 { animation-delay: 1.2s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(30px, 20px) scale(1.05); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.2); }
+  }
+
+  .animate-drift-slow {
+    animation: drift 12s ease-in-out infinite alternate;
+  }
+
+  .animate-drift-slower {
+    animation: drift 16s ease-in-out infinite alternate-reverse;
+  }
+
+  .animate-scroll-pulse {
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
