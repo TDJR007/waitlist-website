@@ -183,7 +183,9 @@ If your client has a domain:
 1. Go to your project in the Vercel dashboard
 2. Click **Settings → Domains**
 3. Add the domain and follow the DNS instructions Vercel gives you
-4. Vercel provisions an SSL certificate automatically
+4. Vercel provisions an SSL certificate automatically.
+
+Find the detailed step-by-step instructions here (will take 2 min): [Setup Custom Domain for your website With GoDaddy](./CUSTOM_DOMAIN.md)
 
 ---
 
